@@ -69,6 +69,39 @@
       margin-bottom: 0;
     }
 
+
+    .student-box {
+      margin-bottom: 12px;
+    }
+
+    .student-box label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .student-box input {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      outline: none;
+      background: white;
+      color: #111827;
+    }
+
+    .student-box input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .download {
+      background: #7c3aed;
+      color: white;
+    }
+
     textarea {
       width: 100%;
       min-height: 360px;
@@ -171,7 +204,7 @@
       }
 
       .buttons {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
       }
     }
   </style>
@@ -194,6 +227,7 @@
     </p>
     <p class="tip">
       Dica: faça uma alteração por vez e execute novamente para perceber o que cada tag faz.
+      Quando terminar, informe seu nome e toque em <strong>💾 Baixar HTML</strong> para salvar a página no celular.
     </p>
   </section>
 
@@ -213,6 +247,18 @@
 
     <section class="card">
       <h2>✍️ Seu código HTML</h2>
+
+      <div class="student-box">
+        <label for="studentName">👤 Nome do aluno</label>
+        <input
+          id="studentName"
+          type="text"
+          placeholder="Ex.: João Pedro"
+          autocomplete="name"
+          maxlength="80"
+        >
+      </div>
+
       <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;pt-BR&quot;&gt;
 &lt;head&gt;
@@ -357,6 +403,7 @@
 
       <div class="buttons">
         <button class="run" id="runBtn">▶ Executar</button>
+        <button class="download" id="downloadBtn">💾 Baixar HTML</button>
         <button class="copy" id="copyBtn">📋 Copiar</button>
         <button class="reset" id="resetBtn">↩ Restaurar</button>
         <button class="clear" id="clearBtn">🗑 Limpar</button>
@@ -381,6 +428,7 @@
   const editor = document.getElementById("editor");
   const preview = document.getElementById("preview");
   const status = document.getElementById("status");
+  const studentName = document.getElementById("studentName");
   const originalCode = editor.value;
 
   function showStatus(message) {
@@ -396,6 +444,44 @@
   }
 
   document.getElementById("runBtn").addEventListener("click", runCode);
+
+  function makeSafeFileName(name) {
+    return name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function downloadHtml() {
+    const name = studentName.value.trim();
+
+    if (!name) {
+      showStatus("⚠️ Digite seu nome antes de baixar.");
+      studentName.focus();
+      return;
+    }
+
+    const safeName = makeSafeFileName(name) || "aluno";
+    const fileName = `pagina-pessoal-${safeName}.html`;
+    const blob = new Blob([editor.value], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showStatus(`💾 ${fileName} baixado no celular.`);
+  }
+
+  document.getElementById("downloadBtn").addEventListener("click", downloadHtml);
+
 
   document.getElementById("resetBtn").addEventListener("click", () => {
     editor.value = originalCode;
