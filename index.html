@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>HTML Lab — 9º Ano</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+
+    header p {
+      margin: 0;
+      opacity: .9;
+      font-size: .95rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.07);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    .instructions {
+      line-height: 1.5;
+      font-size: .95rem;
+    }
+
+    .challenge {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+    }
+
+    .challenge ol {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      resize: vertical;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 16px;
+      line-height: 1.45;
+      background: #0f172a;
+      color: #e2e8f0;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 10px;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+    }
+
+    .run {
+      background: #2563eb;
+      color: white;
+    }
+
+    .reset {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .clear {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .copy {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status {
+      min-height: 22px;
+      margin-top: 10px;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 500px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .tip {
+      font-size: .9rem;
+      color: #475569;
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 14px 28px;
+      color: #64748b;
+      font-size: .85rem;
+    }
+
+    @media (min-width: 850px) {
+      .workspace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .workspace .card {
+        margin-bottom: 0;
+      }
+
+      textarea,
+      iframe {
+        min-height: 650px;
+      }
+
+      .buttons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💻 HTML Lab — 9º Ano</h1>
+  <p>Digite, execute e veja seu código funcionando no próprio celular.</p>
+</header>
+
+<main class="container">
+
+  <section class="card instructions">
+    <h2>📘 Como usar</h2>
+    <p>
+      Digite ou altere o código HTML no editor. Depois toque em
+      <strong>▶ Executar</strong>. O resultado aparecerá logo abaixo
+      (ou ao lado, em telas maiores).
+    </p>
+    <p class="tip">
+      Dica: faça uma alteração por vez e execute novamente para perceber o que cada tag faz.
+    </p>
+  </section>
+
+  <section class="card challenge">
+    <h2>🎯 Desafios do professor</h2>
+    <ol>
+      <li>Troque o nome <strong>Janderson</strong> pelo seu nome.</li>
+      <li>Altere a frase de apresentação.</li>
+      <li>Adicione uma nova habilidade usando <code>&lt;li&gt;</code>.</li>
+      <li>Crie um novo projeto usando <code>&lt;article&gt;</code>.</li>
+      <li>Altere o texto do rodapé.</li>
+      <li>Teste os links do menu para navegar pela própria página.</li>
+    </ol>
+  </section>
+
+  <div class="workspace">
+
+    <section class="card">
+      <h2>✍️ Seu código HTML</h2>
+      <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Página pessoal de Janderson, professor e desenvolvedor.&quot;&gt;
+    &lt;title&gt;Janderson | Professor e Desenvolvedor&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;header id=&quot;inicio&quot;&gt;
+        &lt;h1&gt;💻 JANDERSON.DEV&lt;/h1&gt;
+
+        &lt;nav aria-label=&quot;Navegação principal&quot;&gt;
+            &lt;a href=&quot;#inicio&quot;&gt;Início&lt;/a&gt; |
+            &lt;a href=&quot;#sobre&quot;&gt;Sobre mim&lt;/a&gt; |
+            &lt;a href=&quot;#habilidades&quot;&gt;Habilidades&lt;/a&gt; |
+            &lt;a href=&quot;#projetos&quot;&gt;Projetos&lt;/a&gt; |
+            &lt;a href=&quot;#contato&quot;&gt;Contato&lt;/a&gt;
+        &lt;/nav&gt;
+
+        &lt;hr&gt;
+
+        &lt;section aria-labelledby=&quot;apresentacao&quot;&gt;
+            &lt;p&gt;👋 Olá, eu sou&lt;/p&gt;
+            &lt;h2 id=&quot;apresentacao&quot;&gt;Janderson&lt;/h2&gt;
+            &lt;h3&gt;Professor • Desenvolvedor • Criador de soluções&lt;/h3&gt;
+            &lt;p&gt;
+                Gosto de transformar ideias em sistemas, projetos educacionais
+                e experiências que aproximam as pessoas da tecnologia.
+            &lt;/p&gt;
+            &lt;p&gt;&lt;a href=&quot;#projetos&quot;&gt;🚀 Conheça meus projetos&lt;/a&gt;&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;hr&gt;
+
+        &lt;section id=&quot;sobre&quot; aria-labelledby=&quot;titulo-sobre&quot;&gt;
+            &lt;h2 id=&quot;titulo-sobre&quot;&gt;🎓 Sobre mim&lt;/h2&gt;
+            &lt;p&gt;
+                Sou professor e desenvolvedor da
+                &lt;strong&gt;Jundu Engenharia de Tecnologia&lt;/strong&gt;. Minha missão é
+                transformar ideias em tecnologia e conhecimento, criando soluções
+                que resolvam problemas reais e ajudem outras pessoas a aprender.
+            &lt;/p&gt;
+
+            &lt;blockquote&gt;
+                “Aprender tecnologia é descobrir novas maneiras de criar o futuro.”
+            &lt;/blockquote&gt;
+        &lt;/section&gt;
+
+        &lt;hr&gt;
+
+        &lt;section id=&quot;habilidades&quot; aria-labelledby=&quot;titulo-habilidades&quot;&gt;
+            &lt;h2 id=&quot;titulo-habilidades&quot;&gt;🧰 Minhas habilidades&lt;/h2&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;🌐 &lt;strong&gt;Desenvolvimento Web:&lt;/strong&gt; criação de sistemas e páginas para a internet.&lt;/li&gt;
+                &lt;li&gt;🗄️ &lt;strong&gt;Banco de Dados:&lt;/strong&gt; organização e análise de informações.&lt;/li&gt;
+                &lt;li&gt;🤖 &lt;strong&gt;Inteligência Artificial:&lt;/strong&gt; soluções inteligentes aplicadas a projetos.&lt;/li&gt;
+                &lt;li&gt;📚 &lt;strong&gt;Educação Tecnológica:&lt;/strong&gt; aulas, apostilas e atividades práticas.&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;h3&gt;Áreas de atuação&lt;/h3&gt;
+            &lt;table border=&quot;1&quot; cellpadding=&quot;8&quot;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Área&lt;/th&gt;
+                        &lt;th&gt;O que faço&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Programação&lt;/td&gt;
+                        &lt;td&gt;Desenvolvo sistemas e automatizo processos.&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Dados&lt;/td&gt;
+                        &lt;td&gt;Organizo informações para apoiar decisões.&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Educação&lt;/td&gt;
+                        &lt;td&gt;Ensino tecnologia de forma prática e criativa.&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/section&gt;
+
+        &lt;hr&gt;
+
+        &lt;section id=&quot;projetos&quot; aria-labelledby=&quot;titulo-projetos&quot;&gt;
+            &lt;h2 id=&quot;titulo-projetos&quot;&gt;⭐ Projetos em destaque&lt;/h2&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;🦁 Safari&lt;/h3&gt;
+                &lt;p&gt;Sistema completo para gerenciamento, processamento e análise de dados.&lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;🍔 Vale Lanche&lt;/h3&gt;
+                &lt;p&gt;Solução para créditos, compras e controle financeiro em cantinas escolares.&lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;🔧 Minha Oficina&lt;/h3&gt;
+                &lt;p&gt;Sistema de controle para oficinas, clientes, veículos, serviços e finanças.&lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;🧭 Aventuras Digitais&lt;/h3&gt;
+                &lt;p&gt;Projeto educativo que ensina tecnologia e segurança digital de forma divertida.&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;hr&gt;
+
+        &lt;section id=&quot;contato&quot; aria-labelledby=&quot;titulo-contato&quot;&gt;
+            &lt;h2 id=&quot;titulo-contato&quot;&gt;💡 Vamos conversar?&lt;/h2&gt;
+            &lt;p&gt;
+                Tem uma ideia, um projeto ou quer aprender mais sobre tecnologia?
+                Entre em contato com a Jundu Engenharia de Tecnologia.
+            &lt;/p&gt;
+
+            &lt;address&gt;
+                &lt;strong&gt;Jundu Engenharia de Tecnologia&lt;/strong&gt;&lt;br&gt;
+                Ribeirão Preto — SP&lt;br&gt;
+                &lt;a href=&quot;mailto:contato@exemplo.com&quot;&gt;Enviar uma mensagem&lt;/a&gt;
+            &lt;/address&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;hr&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Janderson — Jundu Engenharia de Tecnologia&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;#inicio&quot;&gt;⬆ Voltar ao início&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+
+      <div class="buttons">
+        <button class="run" id="runBtn">▶ Executar</button>
+        <button class="copy" id="copyBtn">📋 Copiar</button>
+        <button class="reset" id="resetBtn">↩ Restaurar</button>
+        <button class="clear" id="clearBtn">🗑 Limpar</button>
+      </div>
+
+      <div class="status" id="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>📱 Resultado da página</h2>
+      <iframe id="preview" title="Resultado do código HTML"></iframe>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  Laboratório de HTML • 9º Ano • 2026
+</footer>
+
+<script>
+  const editor = document.getElementById("editor");
+  const preview = document.getElementById("preview");
+  const status = document.getElementById("status");
+  const originalCode = editor.value;
+
+  function showStatus(message) {
+    status.textContent = message;
+    setTimeout(() => {
+      if (status.textContent === message) status.textContent = "";
+    }, 2500);
+  }
+
+  function runCode() {
+    preview.srcdoc = editor.value;
+    showStatus("✅ Código executado!");
+  }
+
+  document.getElementById("runBtn").addEventListener("click", runCode);
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    editor.value = originalCode;
+    runCode();
+    showStatus("↩ Código original restaurado.");
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", () => {
+    editor.value = "";
+    preview.srcdoc = "";
+    showStatus("🗑 Editor limpo.");
+    editor.focus();
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(editor.value);
+      showStatus("📋 Código copiado.");
+    } catch {
+      editor.select();
+      document.execCommand("copy");
+      showStatus("📋 Código copiado.");
+    }
+  });
+
+  editor.addEventListener("keydown", (event) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      const start = editor.selectionStart;
+      const end = editor.selectionEnd;
+      editor.value =
+        editor.value.substring(0, start) +
+        "    " +
+        editor.value.substring(end);
+      editor.selectionStart = editor.selectionEnd = start + 4;
+    }
+  });
+
+  runCode();
+</script>
+
+</body>
+</html>
