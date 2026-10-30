@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prova de HTML - 9º Ano</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1f2937;
+    }
+    .container {
+      max-width: 920px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 2rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 26px;
+    }
+    .info {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    label.nome {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .questao {
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .questao:last-child { border-bottom: none; }
+    .questao h3 {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+    .opcao {
+      display: block;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .opcao:hover { background: #f3f4f6; }
+    input[type="radio"] {
+      margin-right: 8px;
+      transform: scale(1.15);
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      margin-top: 16px;
+    }
+    button:hover { background: #1d4ed8; }
+    .resultado {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 20px;
+      background: #f3f4f6;
+    }
+    .nota {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .perfeito {
+      background: #ecfdf5;
+      border: 2px solid #10b981;
+    }
+    .rodape {
+      text-align: center;
+      color: #6b7280;
+      font-size: .9rem;
+      margin-top: 24px;
+    }
+    .confete {
+      position: fixed;
+      top: -20px;
+      width: 10px;
+      height: 16px;
+      animation: cair 2.5s linear forwards;
+      z-index: 9999;
+    }
+    @keyframes cair {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: .9;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>📝 Prova de HTML — 9º Ano</h1>
+    <p class="subtitle">20 questões • 0,5 ponto cada • Nota máxima: 10</p>
+
+    <div class="info">
+      Responda todas as questões antes de finalizar. A nota será exibida automaticamente ao final.
+    </div>
+
+    <label class="nome" for="nomeAluno">Nome completo do aluno:</label>
+    <input type="text" id="nomeAluno" placeholder="Digite seu nome completo">
+
+    <form id="prova">
+
+      <div class="questao">
+        <h3>1. Qual tag é usada para criar o título principal de uma página?</h3>
+        <label class="opcao"><input type="radio" name="q1" value="a"> &lt;p&gt;</label>
+        <label class="opcao"><input type="radio" name="q1" value="b"> &lt;h1&gt;</label>
+        <label class="opcao"><input type="radio" name="q1" value="c"> &lt;img&gt;</label>
+        <label class="opcao"><input type="radio" name="q1" value="d"> &lt;br&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>2. Qual tag é usada para criar um parágrafo?</h3>
+        <label class="opcao"><input type="radio" name="q2" value="a"> &lt;p&gt;</label>
+        <label class="opcao"><input type="radio" name="q2" value="b"> &lt;a&gt;</label>
+        <label class="opcao"><input type="radio" name="q2" value="c"> &lt;h2&gt;</label>
+        <label class="opcao"><input type="radio" name="q2" value="d"> &lt;ul&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>3. Qual tag é usada para inserir uma imagem?</h3>
+        <label class="opcao"><input type="radio" name="q3" value="a"> &lt;photo&gt;</label>
+        <label class="opcao"><input type="radio" name="q3" value="b"> &lt;figuretext&gt;</label>
+        <label class="opcao"><input type="radio" name="q3" value="c"> &lt;img&gt;</label>
+        <label class="opcao"><input type="radio" name="q3" value="d"> &lt;image&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>4. Qual atributo da tag &lt;img&gt; indica o endereço da imagem?</h3>
+        <label class="opcao"><input type="radio" name="q4" value="a"> href</label>
+        <label class="opcao"><input type="radio" name="q4" value="b"> src</label>
+        <label class="opcao"><input type="radio" name="q4" value="c"> link</label>
+        <label class="opcao"><input type="radio" name="q4" value="d"> file</label>
+      </div>
+
+      <div class="questao">
+        <h3>5. Qual tag é usada para criar um link?</h3>
+        <label class="opcao"><input type="radio" name="q5" value="a"> &lt;a&gt;</label>
+        <label class="opcao"><input type="radio" name="q5" value="b"> &lt;url&gt;</label>
+        <label class="opcao"><input type="radio" name="q5" value="c"> &lt;href&gt;</label>
+        <label class="opcao"><input type="radio" name="q5" value="d"> &lt;linkar&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>6. Em qual parte do HTML fica o conteúdo visível da página?</h3>
+        <label class="opcao"><input type="radio" name="q6" value="a"> &lt;head&gt;</label>
+        <label class="opcao"><input type="radio" name="q6" value="b"> &lt;meta&gt;</label>
+        <label class="opcao"><input type="radio" name="q6" value="c"> &lt;body&gt;</label>
+        <label class="opcao"><input type="radio" name="q6" value="d"> &lt;title&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>7. Qual tag cria uma lista não ordenada?</h3>
+        <label class="opcao"><input type="radio" name="q7" value="a"> &lt;ol&gt;</label>
+        <label class="opcao"><input type="radio" name="q7" value="b"> &lt;ul&gt;</label>
+        <label class="opcao"><input type="radio" name="q7" value="c"> &lt;li&gt;</label>
+        <label class="opcao"><input type="radio" name="q7" value="d"> &lt;list&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>8. Qual tag cria um item dentro de uma lista?</h3>
+        <label class="opcao"><input type="radio" name="q8" value="a"> &lt;item&gt;</label>
+        <label class="opcao"><input type="radio" name="q8" value="b"> &lt;list&gt;</label>
+        <label class="opcao"><input type="radio" name="q8" value="c"> &lt;li&gt;</label>
+        <label class="opcao"><input type="radio" name="q8" value="d"> &lt;ul&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>9. Qual tag define o texto exibido na aba do navegador?</h3>
+        <label class="opcao"><input type="radio" name="q9" value="a"> &lt;title&gt;</label>
+        <label class="opcao"><input type="radio" name="q9" value="b"> &lt;header&gt;</label>
+        <label class="opcao"><input type="radio" name="q9" value="c"> &lt;h1&gt;</label>
+        <label class="opcao"><input type="radio" name="q9" value="d"> &lt;caption&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>10. Qual é a função principal do HTML?</h3>
+        <label class="opcao"><input type="radio" name="q10" value="a"> Editar fotografias</label>
+        <label class="opcao"><input type="radio" name="q10" value="b"> Criar e estruturar o conteúdo de páginas web</label>
+        <label class="opcao"><input type="radio" name="q10" value="c"> Criar planilhas</label>
+        <label class="opcao"><input type="radio" name="q10" value="d"> Proteger contra vírus</label>
+      </div>
+
+      <div class="questao">
+        <h3>11. Qual estrutura representa corretamente o início de um documento HTML?</h3>
+        <label class="opcao"><input type="radio" name="q11" value="a"> &lt;html&gt; &lt;head&gt; &lt;body&gt;</label>
+        <label class="opcao"><input type="radio" name="q11" value="b"> &lt;body&gt; &lt;html&gt; &lt;head&gt;</label>
+        <label class="opcao"><input type="radio" name="q11" value="c"> &lt;head&gt; &lt;body&gt; &lt;html&gt;</label>
+        <label class="opcao"><input type="radio" name="q11" value="d"> &lt;title&gt; &lt;html&gt; &lt;p&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>12. Qual atributo é usado no link <code>&lt;a&gt;</code> para indicar o destino?</h3>
+        <label class="opcao"><input type="radio" name="q12" value="a"> src</label>
+        <label class="opcao"><input type="radio" name="q12" value="b"> alt</label>
+        <label class="opcao"><input type="radio" name="q12" value="c"> href</label>
+        <label class="opcao"><input type="radio" name="q12" value="d"> targetname</label>
+      </div>
+
+      <div class="questao">
+        <h3>13. Para que serve o atributo <code>alt</code> em uma imagem?</h3>
+        <label class="opcao"><input type="radio" name="q13" value="a"> Para informar um texto alternativo sobre a imagem</label>
+        <label class="opcao"><input type="radio" name="q13" value="b"> Para aumentar a imagem automaticamente</label>
+        <label class="opcao"><input type="radio" name="q13" value="c"> Para transformar a imagem em link</label>
+        <label class="opcao"><input type="radio" name="q13" value="d"> Para mudar a extensão do arquivo</label>
+      </div>
+
+      <div class="questao">
+        <h3>14. Qual tag cria uma quebra de linha?</h3>
+        <label class="opcao"><input type="radio" name="q14" value="a"> &lt;hr&gt;</label>
+        <label class="opcao"><input type="radio" name="q14" value="b"> &lt;br&gt;</label>
+        <label class="opcao"><input type="radio" name="q14" value="c"> &lt;break&gt;</label>
+        <label class="opcao"><input type="radio" name="q14" value="d"> &lt;line&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>15. Observe: <code>&lt;a href="https://exemplo.com"&gt;Visitar site&lt;/a&gt;</code>. O que aparecerá para o usuário?</h3>
+        <label class="opcao"><input type="radio" name="q15" value="a"> Apenas o endereço https://exemplo.com</label>
+        <label class="opcao"><input type="radio" name="q15" value="b"> Um botão chamado HTML</label>
+        <label class="opcao"><input type="radio" name="q15" value="c"> O texto clicável “Visitar site”</label>
+        <label class="opcao"><input type="radio" name="q15" value="d"> Uma imagem</label>
+      </div>
+
+      <div class="questao">
+        <h3>16. Qual código cria corretamente uma imagem chamada <code>cidade.jpg</code>?</h3>
+        <label class="opcao"><input type="radio" name="q16" value="a"> &lt;img src="cidade.jpg"&gt;</label>
+        <label class="opcao"><input type="radio" name="q16" value="b"> &lt;img href="cidade.jpg"&gt;</label>
+        <label class="opcao"><input type="radio" name="q16" value="c"> &lt;a src="cidade.jpg"&gt;</label>
+        <label class="opcao"><input type="radio" name="q16" value="d"> &lt;picture file="cidade.jpg"&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>17. Qual tag é usada para criar uma lista numerada?</h3>
+        <label class="opcao"><input type="radio" name="q17" value="a"> &lt;ul&gt;</label>
+        <label class="opcao"><input type="radio" name="q17" value="b"> &lt;li&gt;</label>
+        <label class="opcao"><input type="radio" name="q17" value="c"> &lt;ol&gt;</label>
+        <label class="opcao"><input type="radio" name="q17" value="d"> &lt;num&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>18. Onde normalmente ficam informações como <code>&lt;title&gt;</code> e <code>&lt;meta&gt;</code>?</h3>
+        <label class="opcao"><input type="radio" name="q18" value="a"> Dentro de &lt;body&gt;</label>
+        <label class="opcao"><input type="radio" name="q18" value="b"> Dentro de &lt;head&gt;</label>
+        <label class="opcao"><input type="radio" name="q18" value="c"> Dentro de &lt;p&gt;</label>
+        <label class="opcao"><input type="radio" name="q18" value="d"> Fora de &lt;html&gt;</label>
+      </div>
+
+      <div class="questao">
+        <h3>19. Observe o código: <code>&lt;h2&gt;Reconstrução da Cidade&lt;/h2&gt;</code>. Qual será o resultado?</h3>
+        <label class="opcao"><input type="radio" name="q19" value="a"> Uma imagem chamada Reconstrução da Cidade</label>
+        <label class="opcao"><input type="radio" name="q19" value="b"> Um título de nível 2 com esse texto</label>
+        <label class="opcao"><input type="radio" name="q19" value="c"> Um link para outra página</label>
+        <label class="opcao"><input type="radio" name="q19" value="d"> Uma lista numerada</label>
+      </div>
+
+      <div class="questao">
+        <h3>20. Um aluno quer criar uma página com título, texto, imagem e link. Qual conjunto de tags atende melhor a essa necessidade?</h3>
+        <label class="opcao"><input type="radio" name="q20" value="a"> &lt;h1&gt;, &lt;p&gt;, &lt;img&gt; e &lt;a&gt;</label>
+        <label class="opcao"><input type="radio" name="q20" value="b"> &lt;meta&gt;, &lt;br&gt;, &lt;ol&gt; e &lt;li&gt;</label>
+        <label class="opcao"><input type="radio" name="q20" value="c"> &lt;head&gt;, &lt;title&gt;, &lt;meta&gt; e &lt;html&gt;</label>
+        <label class="opcao"><input type="radio" name="q20" value="d"> &lt;table&gt;, &lt;hr&gt;, &lt;ul&gt; e &lt;body&gt;</label>
+      </div>
+
+      <button type="button" onclick="corrigirProva()">Finalizar prova e ver nota</button>
+    </form>
+
+    <div id="resultado" class="resultado">
+      <h2 id="mensagem"></h2>
+      <div id="nota" class="nota"></div>
+      <p id="detalhes"></p>
+    </div>
+
+    <div class="rodape">Prova de Informática — 9º Ano</div>
+  </div>
+</div>
+
+<script>
+  const gabarito = {
+    q1:"b", q2:"a", q3:"c", q4:"b", q5:"a",
+    q6:"c", q7:"b", q8:"c", q9:"a", q10:"b",
+    q11:"a", q12:"c", q13:"a", q14:"b", q15:"c",
+    q16:"a", q17:"c", q18:"b", q19:"b", q20:"a"
+  };
+
+  function corrigirProva() {
+    const nome = document.getElementById("nomeAluno").value.trim();
+
+    if (!nome) {
+      alert("Digite seu nome antes de finalizar a prova.");
+      document.getElementById("nomeAluno").focus();
+      return;
+    }
+
+    let acertos = 0;
+    let respondidas = 0;
+
+    for (const questao in gabarito) {
+      const marcada = document.querySelector(`input[name="${questao}"]:checked`);
+      if (marcada) {
+        respondidas++;
+        if (marcada.value === gabarito[questao]) acertos++;
+      }
+    }
+
+    if (respondidas < 20) {
+      alert(`Você respondeu ${respondidas} de 20 questões. Responda todas antes de finalizar.`);
+      return;
+    }
+
+    const nota = acertos * 0.5;
+    const resultado = document.getElementById("resultado");
+    const mensagem = document.getElementById("mensagem");
+    const notaEl = document.getElementById("nota");
+    const detalhes = document.getElementById("detalhes");
+
+    resultado.style.display = "block";
+    resultado.classList.remove("perfeito");
+
+    notaEl.textContent = `${nota.toFixed(1).replace(".", ",")}/10`;
+    detalhes.textContent = `${nome}, você acertou ${acertos} de 20 questões.`;
+
+    if (nota === 10) {
+      resultado.classList.add("perfeito");
+      mensagem.textContent = "🏆 PARABÉNS! NOTA MÁXIMA! 🏆";
+      detalhes.textContent = `${nome}, você acertou todas as 20 questões! Excelente trabalho!`;
+      tocarAlarme();
+      soltarConfetes();
+    } else if (nota >= 7) {
+      mensagem.textContent = "👏 Muito bem!";
+    } else if (nota >= 5) {
+      mensagem.textContent = "👍 Bom esforço!";
+    } else {
+      mensagem.textContent = "📚 Continue estudando!";
+    }
+
+    resultado.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function tocarAlarme() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioContext();
+    const notas = [523.25, 659.25, 783.99, 1046.50, 783.99, 1046.50];
+    const inicio = ctx.currentTime;
+
+    notas.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const ganho = ctx.createGain();
+
+      osc.type = "square";
+      osc.frequency.value = freq;
+
+      ganho.gain.setValueAtTime(0.0001, inicio + i * 0.18);
+      ganho.gain.exponentialRampToValueAtTime(0.25, inicio + i * 0.18 + 0.02);
+      ganho.gain.exponentialRampToValueAtTime(0.0001, inicio + i * 0.18 + 0.16);
+
+      osc.connect(ganho);
+      ganho.connect(ctx.destination);
+
+      osc.start(inicio + i * 0.18);
+      osc.stop(inicio + i * 0.18 + 0.18);
+    });
+  }
+
+  function soltarConfetes() {
+    const cores = ["#ef4444", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"];
+    for (let i = 0; i < 100; i++) {
+      const c = document.createElement("div");
+      c.className = "confete";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.background = cores[Math.floor(Math.random() * cores.length)];
+      c.style.animationDelay = Math.random() * 0.6 + "s";
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3500);
+    }
+  }
+</script>
+</body>
+</html>
