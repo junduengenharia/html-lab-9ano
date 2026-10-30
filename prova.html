@@ -315,6 +315,7 @@
       <h2 id="mensagem"></h2>
       <div id="nota" class="nota"></div>
       <p id="detalhes"></p>
+      <p id="statusSalvamento" style="font-weight:bold;color:#2563eb;"></p>
     </div>
 
     <div class="rodape">Prova de Informática — 9º Ano</div>
@@ -328,6 +329,49 @@
     q11:"a", q12:"c", q13:"a", q14:"b", q15:"c",
     q16:"a", q17:"c", q18:"b", q19:"b", q20:"a"
   };
+
+  // Cole aqui a URL do Web App gerada pelo Google Apps Script.
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrt9i6I0EAjKE4WPjzDNbNlyZLvk_OajvJhMSAiCGzbLrKEKG4Eb4VJt6XHzYtyfXW/exec";
+
+  async function salvarResultado(nome, nota, acertos) {
+    const status = document.getElementById("statusSalvamento");
+
+    if (!SCRIPT_URL || SCRIPT_URL.includes("COLE_AQUI")) {
+      status.textContent = "⚠️ Resultado calculado, mas o Google Sheets ainda não foi configurado.";
+      return;
+    }
+
+    const respostas = [];
+    for (let i = 1; i <= 20; i++) {
+      const marcada = document.querySelector(`input[name="q${i}"]:checked`);
+      respostas.push(`q${i}=${marcada ? marcada.value : ""}`);
+    }
+
+    const dados = new URLSearchParams();
+    dados.append("nome", nome);
+    dados.append("nota", nota.toFixed(1));
+    dados.append("acertos", String(acertos));
+    dados.append("total", "20");
+    dados.append("respostas", respostas.join(";"));
+
+    status.textContent = "☁️ Salvando resultado...";
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        body: dados.toString()
+      });
+
+      status.textContent = "✅ Resultado enviado para a planilha do professor.";
+    } catch (erro) {
+      status.textContent = "⚠️ Não foi possível enviar o resultado. Avise o professor.";
+      console.error(erro);
+    }
+  }
 
   function corrigirProva() {
     const nome = document.getElementById("nomeAluno").value.trim();
@@ -380,6 +424,7 @@
       mensagem.textContent = "📚 Continue estudando!";
     }
 
+    salvarResultado(nome, nota, acertos);
     resultado.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
