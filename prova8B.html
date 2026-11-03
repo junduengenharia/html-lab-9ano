@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova de Planilhas - 8º Ano</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial;background:linear-gradient(135deg,#eef9f1,#f8fbff);color:#1f2937}
+.container{max-width:920px;margin:30px auto;padding:20px} .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 30px #0001}
+h1,.subtitle{text-align:center} .subtitle{color:#6b7280} .info{background:#ecfdf5;border-left:5px solid #10b981;padding:12px;border-radius:10px;margin:20px 0}
+input[type=text]{width:100%;padding:14px;border:2px solid #d1d5db;border-radius:10px;font-size:1rem}
+.questao{padding:20px 0;border-bottom:1px solid #e5e7eb} .opcao{display:block;margin:10px 0;padding:10px;border-radius:10px;cursor:pointer} .opcao:hover{background:#f3f4f6}
+button{width:100%;border:0;border-radius:12px;padding:16px;font-size:1.1rem;font-weight:bold;background:#16a34a;color:white;margin-top:16px;cursor:pointer}
+.resultado{display:none;text-align:center;padding:24px;border-radius:16px;margin-top:20px;background:#f3f4f6} .nota{font-size:3rem;font-weight:bold} .perfeito{background:#ecfdf5;border:2px solid #10b981}
+.confete{position:fixed;top:-20px;width:10px;height:16px;animation:cair 2.5s linear forwards;z-index:9999} @keyframes cair{to{transform:translateY(110vh) rotate(720deg)}}
+</style>
+</head>
+<body><div class="container"><div class="card">
+<h1>📊 Prova de Planilhas — 8º Ano</h1>
+<p class="subtitle">20 questões • 0,5 ponto cada • Nota máxima: 10</p>
+<div class="info">Responda todas as questões. A nota será exibida automaticamente.</div>
+<label><b>Nome completo do aluno:</b></label>
+<input id="nomeAluno" type="text" placeholder="Digite seu nome completo">
+<form id="prova">
+<div class="questao"><h3>1. Em uma planilha, o encontro entre uma linha e uma coluna forma:</h3><label class="opcao"><input type="radio" name="q1" value="a"> Uma pasta</label>
+<label class="opcao"><input type="radio" name="q1" value="b"> Uma célula</label>
+<label class="opcao"><input type="radio" name="q1" value="c"> Um gráfico</label>
+<label class="opcao"><input type="radio" name="q1" value="d"> Uma fórmula</label></div><div class="questao"><h3>2. Em uma planilha, a célula B2 contém 15 e a célula C2 contém 5. Qual fórmula calcula a soma desses dois valores?</h3>
+<label class="opcao"><input type="radio" name="q2" value="a"> =B2+C2</label>
+<label class="opcao"><input type="radio" name="q2" value="b"> =B2*C2</label>
+<label class="opcao"><input type="radio" name="q2" value="c"> =B2/C2</label>
+<label class="opcao"><input type="radio" name="q2" value="d"> =B2-C2</label></div><div class="questao"><h3>3. Como normalmente são identificadas as linhas em uma planilha?</h3><label class="opcao"><input type="radio" name="q3" value="a"> Por letras</label>
+<label class="opcao"><input type="radio" name="q3" value="b"> Por números</label>
+<label class="opcao"><input type="radio" name="q3" value="c"> Por cores</label>
+<label class="opcao"><input type="radio" name="q3" value="d"> Por palavras</label></div><div class="questao"><h3>4. Em uma planilha, a célula A4 contém 80 e a célula B4 contém 20. Qual fórmula calcula a diferença entre esses valores?</h3>
+<label class="opcao"><input type="radio" name="q4" value="a"> =A4-B4</label>
+<label class="opcao"><input type="radio" name="q4" value="b"> =A4+B4</label>
+<label class="opcao"><input type="radio" name="q4" value="c"> =A4*B4</label>
+<label class="opcao"><input type="radio" name="q4" value="d"> =A4/B4</label></div><div class="questao"><h3>5. Qual símbolo normalmente inicia uma fórmula no Excel?</h3><label class="opcao"><input type="radio" name="q5" value="a"> #</label>
+<label class="opcao"><input type="radio" name="q5" value="b"> =</label>
+<label class="opcao"><input type="radio" name="q5" value="c"> &amp;</label>
+<label class="opcao"><input type="radio" name="q5" value="d"> ?</label></div><div class="questao"><h3>6. Qual fórmula soma os valores das células A1 e A2?</h3><label class="opcao"><input type="radio" name="q6" value="a"> =A1+A2</label>
+<label class="opcao"><input type="radio" name="q6" value="b"> A1+A2</label>
+<label class="opcao"><input type="radio" name="q6" value="c"> =A1xA2</label>
+<label class="opcao"><input type="radio" name="q6" value="d"> SOMAR A1 A2</label></div><div class="questao"><h3>7. Em uma planilha, os valores das vendas estão nas células C2 até C6. Qual fórmula soma todas essas vendas?</h3>
+<label class="opcao"><input type="radio" name="q7" value="a"> =MÉDIA(C2:C6)</label>
+<label class="opcao"><input type="radio" name="q7" value="b"> =SOMA(C2:C6)</label>
+<label class="opcao"><input type="radio" name="q7" value="c"> =C2*C6</label>
+<label class="opcao"><input type="radio" name="q7" value="d"> =C2-C6</label></div><div class="questao"><h3>8. Qual fórmula soma corretamente as células de A1 até A5?</h3><label class="opcao"><input type="radio" name="q8" value="a"> =SOMA(A1:A5)</label>
+<label class="opcao"><input type="radio" name="q8" value="b"> =SOMA(A1-A5)</label>
+<label class="opcao"><input type="radio" name="q8" value="c"> =A1:A5</label>
+<label class="opcao"><input type="radio" name="q8" value="d"> SOMA=A1+A5</label></div><div class="questao"><h3>9. Qual função calcula a média de vários valores?</h3><label class="opcao"><input type="radio" name="q9" value="a"> =MÉDIA()</label>
+<label class="opcao"><input type="radio" name="q9" value="b"> =SOMA()</label>
+<label class="opcao"><input type="radio" name="q9" value="c"> =CONTAR()</label>
+<label class="opcao"><input type="radio" name="q9" value="d"> =HOJE()</label></div><div class="questao"><h3>10. Em uma planilha, a célula B3 contém o preço 25 e a célula C3 contém a quantidade 4. Qual fórmula calcula o valor total da compra?</h3>
+<label class="opcao"><input type="radio" name="q10" value="a"> =B3*C3</label>
+<label class="opcao"><input type="radio" name="q10" value="b"> =B3+C3</label>
+<label class="opcao"><input type="radio" name="q10" value="c"> =B3-C3</label>
+<label class="opcao"><input type="radio" name="q10" value="d"> =B3/C3</label></div><div class="questao"><h3>11. Se A1=10, A2=20 e A3=30, qual é o resultado de =SOMA(A1:A3)?</h3><label class="opcao"><input type="radio" name="q11" value="a"> 30</label>
+<label class="opcao"><input type="radio" name="q11" value="b"> 40</label>
+<label class="opcao"><input type="radio" name="q11" value="c"> 50</label>
+<label class="opcao"><input type="radio" name="q11" value="d"> 60</label></div><div class="questao"><h3>12. Em uma planilha, as notas de um aluno estão nas células C5, D5 e E5. Qual fórmula calcula a média dessas três notas?</h3>
+<label class="opcao"><input type="radio" name="q12" value="a"> =SOMA(C5:E5)</label>
+<label class="opcao"><input type="radio" name="q12" value="b"> =C5+D5+E5</label>
+<label class="opcao"><input type="radio" name="q12" value="c"> =MÉDIA(C5:E5)</label>
+<label class="opcao"><input type="radio" name="q12" value="d"> =C5*D5*E5</label></div><div class="questao"><h3>13. Se A1=6, A2=8 e A3=10, qual o resultado de =MÉDIA(A1:A3)?</h3><label class="opcao"><input type="radio" name="q13" value="a"> 6</label>
+<label class="opcao"><input type="radio" name="q13" value="b"> 8</label>
+<label class="opcao"><input type="radio" name="q13" value="c"> 10</label>
+<label class="opcao"><input type="radio" name="q13" value="d"> 24</label></div><div class="questao"><h3>14. Para multiplicar o valor de A1 pelo valor de B1, usamos:</h3><label class="opcao"><input type="radio" name="q14" value="a"> =A1xB1</label>
+<label class="opcao"><input type="radio" name="q14" value="b"> =A1*B1</label>
+<label class="opcao"><input type="radio" name="q14" value="c"> =A1+B1</label>
+<label class="opcao"><input type="radio" name="q14" value="d"> =A1/B1</label></div><div class="questao"><h3>15. Para dividir o valor de A1 pelo valor de B1, usamos:</h3><label class="opcao"><input type="radio" name="q15" value="a"> =A1/B1</label>
+<label class="opcao"><input type="radio" name="q15" value="b"> =A1:B1</label>
+<label class="opcao"><input type="radio" name="q15" value="c"> =A1*B1</label>
+<label class="opcao"><input type="radio" name="q15" value="d"> =A1-B1</label></div><div class="questao"><h3>16. Em uma planilha, a coluna B contém o preço de um produto e a coluna C contém a quantidade comprada. Qual fórmula calcula o valor total da linha 3?</h3>
+<label class="opcao"><input type="radio" name="q16" value="a"> =B3+C3</label>
+<label class="opcao"><input type="radio" name="q16" value="b"> =B3*C3</label>
+<label class="opcao"><input type="radio" name="q16" value="c"> =B3/C3</label>
+<label class="opcao"><input type="radio" name="q16" value="d"> =B3-C3</label></div><div class="questao"><h3>17. Qual situação representa melhor o uso de uma planilha?</h3><label class="opcao"><input type="radio" name="q17" value="a"> Organizar notas e calcular médias de uma turma</label>
+<label class="opcao"><input type="radio" name="q17" value="b"> Editar um vídeo</label>
+<label class="opcao"><input type="radio" name="q17" value="c"> Criar uma animação 3D</label>
+<label class="opcao"><input type="radio" name="q17" value="d"> Gravar um áudio</label></div><div class="questao"><h3>18. Em uma planilha, as notas de um aluno estão nas células B2, C2 e D2. Qual fórmula calcula a média dessas três notas?</h3>
+<label class="opcao"><input type="radio" name="q18" value="a"> =SOMA(B2:D2)</label>
+<label class="opcao"><input type="radio" name="q18" value="b"> =MÉDIA(B2:D2)</label>
+<label class="opcao"><input type="radio" name="q18" value="c"> =B2+C2+D2</label>
+<label class="opcao"><input type="radio" name="q18" value="d"> =B2*C2*D2</label></div><div class="questao"><h3>19. Em uma planilha, a célula A5 contém 200 e a célula B5 contém 50. Qual fórmula calcula a diferença entre esses dois valores?</h3>
+<label class="opcao"><input type="radio" name="q19" value="a"> =A5+B5</label>
+<label class="opcao"><input type="radio" name="q19" value="b"> =A5*B5</label>
+<label class="opcao"><input type="radio" name="q19" value="c"> =A5-B5</label>
+<label class="opcao"><input type="radio" name="q19" value="d"> =A5/B5</label></div><div class="questao"><h3>20. Em uma planilha com preços na coluna B e quantidades na coluna C, qual fórmula calcula o total da linha 2?</h3><label class="opcao"><input type="radio" name="q20" value="a"> =B2+C2</label>
+<label class="opcao"><input type="radio" name="q20" value="b"> =B2*C2</label>
+<label class="opcao"><input type="radio" name="q20" value="c"> =B2/C2</label>
+<label class="opcao"><input type="radio" name="q20" value="d"> =B2-C2</label></div>
+<button type="button" onclick="corrigirProva()">Finalizar prova e ver nota</button>
+</form>
+<div id="resultado" class="resultado"><h2 id="mensagem"></h2><div id="nota" class="nota"></div><p id="detalhes"></p><p id="statusSalvamento"></p></div>
+</div></div>
+<script>
+const gabarito={q1:"b", q2:"a", q3:"b", q4:"a", q5:"b", q6:"a", q7:"b", q8:"a", q9:"a", q10:"a", q11:"d", q12:"c", q13:"b", q14:"b", q15:"a", q16:"b", q17:"a", q18:"b", q19:"c", q20:"b"};
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxIgZ0BcTV0Wr2fnIe6uKGaXc3SxSyD0ljQbv9uhu8CBROeXgec1W0NI-oNzSevxwsvtA/exec";
+
+async function salvarResultado(nome,nota,acertos){
+ const s=document.getElementById("statusSalvamento");
+ if(SCRIPT_URL.includes("COLE_AQUI")){s.textContent="⚠️ Google Sheets ainda não configurado.";return;}
+ const respostas=[];
+ for(let i=1;i<=20;i++){const m=document.querySelector(`input[name="q${i}"]:checked`);respostas.push(`q${i}=${m?m.value:""}`);}
+ const dados=new URLSearchParams({nome,nota:nota.toFixed(1),acertos:String(acertos),total:"20",respostas:respostas.join(";")});
+ s.textContent="☁️ Salvando resultado...";
+ try{await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:dados.toString()});s.textContent="✅ Resultado enviado para a planilha do professor.";}
+ catch(e){s.textContent="⚠️ Não foi possível enviar o resultado.";}
+}
+
+function corrigirProva(){
+ const nome=document.getElementById("nomeAluno").value.trim();
+ if(!nome){alert("Digite seu nome antes de finalizar.");return;}
+ let acertos=0,respondidas=0;
+ for(const q in gabarito){const m=document.querySelector(`input[name="${q}"]:checked`);if(m){respondidas++;if(m.value===gabarito[q])acertos++;}}
+ if(respondidas<20){alert(`Você respondeu ${respondidas} de 20 questões.`);return;}
+ const nota=acertos*.5,r=document.getElementById("resultado");
+ r.style.display="block"; r.classList.remove("perfeito");
+ document.getElementById("nota").textContent=nota.toFixed(1).replace(".",",")+"/10";
+ document.getElementById("detalhes").textContent=`${nome}, você acertou ${acertos} de 20 questões.`;
+ document.getElementById("mensagem").textContent=nota===10?"🏆 PARABÉNS! NOTA MÁXIMA! 🏆":nota>=7?"👏 Muito bem!":nota>=5?"👍 Bom esforço!":"📚 Continue estudando!";
+ if(nota===10){r.classList.add("perfeito");tocarAlarme();soltarConfetes();}
+ salvarResultado(nome,nota,acertos); r.scrollIntoView({behavior:"smooth"});
+}
+function tocarAlarme(){const A=window.AudioContext||window.webkitAudioContext,c=new A(),ns=[523,659,784,1047,784,1047];ns.forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain(),t=c.currentTime+i*.18;o.frequency.value=f;o.type="square";g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.16);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.18);})}
+function soltarConfetes(){for(let i=0;i<100;i++){const c=document.createElement("div");c.className="confete";c.style.left=Math.random()*100+"vw";c.style.background=`hsl(${Math.random()*360},80%,55%)`;document.body.appendChild(c);setTimeout(()=>c.remove(),3000);}}
+</script></body></html>
