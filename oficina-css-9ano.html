@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'">
+<title>Oficina de CSS — 9º ano</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #eef4ff; color: #1f2937; font-family: Arial, sans-serif; }
+main { max-width: 920px; margin: 24px auto; padding: 16px; }
+.card { background: white; border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px #00000012; }
+h1 { margin: 0 0 10px; font-size: 1.8rem; }
+p, li { line-height: 1.5; }
+.subtitle { color: #526075; }
+.info { background: #eff6ff; border-left: 5px solid #2563eb; padding: 12px; border-radius: 10px; }
+nav { display: flex; gap: 8px; margin: 20px 0 12px; }
+button { cursor: pointer; border: 2px solid #2563eb; border-radius: 10px; padding: 12px 16px; font-size: 1rem; font-weight: bold; background: white; color: #1d4ed8; min-height: 48px; }
+button[aria-pressed="true"], .primary { background: #2563eb; color: white; }
+button:focus-visible, textarea:focus-visible, iframe:focus-visible { outline: 3px solid #d97706; outline-offset: 3px; }
+label { display: block; font-weight: bold; margin: 12px 0; }
+textarea { width: 100%; height: 55vh; min-height: 320px; padding: 14px; border: 2px solid #9ca3af; border-radius: 10px; font: 16px/1.6 monospace; color: #172554; background: #f8fafc; resize: vertical; tab-size: 2; }
+iframe { display: block; width: 100%; height: 60vh; min-height: 400px; background: white; border: 2px solid #cbd5e1; border-radius: 10px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+small { display: block; margin-top: 14px; color: #526075; line-height: 1.5; }
+[hidden] { display: none !important; }
+details { margin-top: 24px; padding: 14px; background: #f1f5f9; border-radius: 10px; }
+summary { cursor: pointer; font-weight: bold; }
+code { background: #e2e8f0; padding: 2px 4px; border-radius: 4px; }
+@media (max-width: 480px) { main { margin: 0 auto; padding: 10px; } .card { padding: 16px; } h1 { font-size: 1.5rem; } .actions button { flex: 1 1 140px; } }
+</style>
+</head>
+<body>
+<main><div class="card">
+<h1>Oficina de CSS — 9º ano</h1>
+<p class="subtitle">Transforme a Janderson.dev na sua página pessoal.</p>
+<p class="info">Edite o HTML e o CSS juntos. Depois, toque em <strong>Ver resultado</strong>. Mude uma coisa por vez e observe o efeito.</p>
+<nav aria-label="Áreas da atividade">
+<button id="codeTab" type="button" aria-pressed="true" aria-controls="codePanel">Código</button>
+<button id="resultTab" type="button" aria-pressed="false" aria-controls="resultPanel">Resultado</button>
+</nav>
+<section id="codePanel" aria-label="Editor de código">
+<label for="editor">Seu HTML + CSS</label>
+<textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="editorHelp"></textarea>
+<small id="editorHelp">O CSS fica entre &lt;style&gt; e &lt;/style&gt;. Preserve as chaves, os dois-pontos e os pontos e vírgulas.</small>
+<div class="actions"><button id="run" class="primary" type="button">Ver resultado</button><button id="reset" type="button">Restaurar exemplo</button></div>
+</section>
+<section id="resultPanel" aria-label="Prévia da página" hidden>
+<p>Esta é a página com suas alterações:</p>
+<iframe id="preview" title="Resultado do HTML e CSS" sandbox="" referrerpolicy="no-referrer"></iframe>
+<div class="actions"><button id="back" class="primary" type="button">Voltar ao código</button></div>
+</section>
+<p id="status" role="status" aria-live="polite"></p>
+<details><summary>Desafios para experimentar</summary>
+<ol><li>Troque o nome, a apresentação e os três gostos.</li><li>Altere o fundo em <code>body</code> usando <code>background-color</code>.</li><li>Mude a cor e o tamanho do título em <code>h1</code>.</li><li>Escolha outra fonte com <code>font-family</code>.</li><li>Modifique a borda e os cantos da caixa em <code>main</code>.</li><li>Altere <code>padding</code> e observe o espaço interno.</li></ol>
+<p>Experimente cores como <code>lightblue</code>, <code>lightgreen</code>, <code>lavender</code> e <code>navy</code>. Ao terminar, explique duas mudanças ao professor.</p>
+</details>
+<small>Atividade livre, sem nota e sem envio de dados. As alterações ficam apenas nesta página enquanto ela estiver aberta; ao recarregar ou fechar, você recomeça.</small>
+</div></main>
+<script>
+const example = "\u003c!DOCTYPE html>\n\u003chtml lang=\"pt-BR\">\n\u003chead>\n  \u003cmeta charset=\"UTF-8\">\n  \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  \u003ctitle>Janderson.dev\u003c/title>\n\n  \u003cstyle>\n    /* CSS: seletor { propriedade: valor; } */\n\n    /* Aparência geral da página */\n    body {\n      background-color: #eaf2ff; /* Cor do fundo */\n      color: #333333;           /* Cor do texto */\n      font-family: Arial, sans-serif; /* Fonte */\n      margin: 20px;            /* Espaço externo */\n    }\n\n    /* Caixa que reúne o conteúdo */\n    main {\n      background-color: white;\n      max-width: 600px;        /* Largura máxima: cabe também no celular */\n      margin: auto;           /* Centraliza a caixa */\n      padding: 20px;          /* Espaço interno */\n      border: 2px solid #2563eb; /* Espessura, estilo e cor da borda */\n      border-radius: 12px;    /* Cantos arredondados */\n    }\n\n    /* Título principal */\n    h1 {\n      color: #2563eb;\n      font-size: 32px;\n      text-align: center;\n    }\n\n    /* Título da lista */\n    h2 {\n      color: #2563eb;\n      font-size: 22px;\n    }\n\n    /* Parágrafos e itens da lista */\n    p, li {\n      font-size: 18px;\n      line-height: 1.5;       /* Distância entre as linhas */\n    }\n\n    /* Texto no fim da página */\n    footer {\n      text-align: center;\n      margin-top: 24px;\n      color: #555555;\n    }\n  \u003c/style>\n\u003c/head>\n\u003cbody>\n  \u003cmain>\n    \u003c!-- HTML: altere os textos para criar sua página pessoal. -->\n    \u003ch1>Janderson.dev\u003c/h1>\n\n    \u003cp>Olá! Sou Janderson e estou aprendendo HTML e CSS.\u003c/p>\n\n    \u003ch2>Três coisas de que gosto\u003c/h2>\n    \u003cul>\n      \u003cli>Tecnologia\u003c/li>\n      \u003cli>Música\u003c/li>\n      \u003cli>Jogos\u003c/li>\n    \u003c/ul>\n\n    \u003cfooter>Minha primeira página com estilo.\u003c/footer>\n  \u003c/main>\n\n  \u003c!--\n    DESAFIOS DA AULA\n    1. Troque Janderson pelo seu primeiro nome no título e na apresentação.\n    2. Personalize as três coisas de que você gosta.\n    3. Mude a cor do fundo da página (background-color no body).\n    4. Mude a cor e o tamanho do título (color e font-size no h1).\n    5. Escolha outra fonte (font-family no body).\n    6. Modifique a borda da caixa (border no main).\n    7. Experimente mudar o padding e observe o espaço dentro da caixa.\n\n    Faça uma alteração por vez, salve e confira no navegador.\n    Cores para experimentar: lightblue, lightyellow, lavender, navy, green.\n    Preserve os sinais: { } : ;\n    Ao terminar, explique duas alterações feitas no CSS.\n  -->\n\u003c/body>\n\u003c/html>\n";
+const editor = document.getElementById('editor');
+const preview = document.getElementById('preview');
+const status = document.getElementById('status');
+editor.value = example;
+function showResult(result) {
+  document.getElementById('codePanel').hidden = result;
+  document.getElementById('resultPanel').hidden = !result;
+  document.getElementById('codeTab').setAttribute('aria-pressed', String(!result));
+  document.getElementById('resultTab').setAttribute('aria-pressed', String(result));
+}
+function render() {
+  // A prévia aceita HTML e CSS, sem scripts, formulários ou recursos externos.
+  const policy = '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'unsafe-inline\'; img-src data:; font-src \'none\'; form-action \'none\'; base-uri \'none\'">';
+  preview.srcdoc = policy + editor.value;
+  showResult(true);
+  status.textContent = 'Resultado atualizado. Volte ao código para continuar.';
+}
+document.getElementById('run').addEventListener('click', render);
+document.getElementById('resultTab').addEventListener('click', render);
+function back() { showResult(false); status.textContent = ''; }
+document.getElementById('codeTab').addEventListener('click', back);
+document.getElementById('back').addEventListener('click', back);
+document.getElementById('reset').addEventListener('click', () => {
+  if (editor.value !== example && !window.confirm('Restaurar o exemplo? Suas alterações serão apagadas.')) return;
+  editor.value = example;
+  preview.srcdoc = '';
+  showResult(false);
+  status.textContent = 'Exemplo restaurado.';
+});
+</script>
+</body>
+</html>
